@@ -1,0 +1,42 @@
+Type: Package
+Package: dshr
+Title: Disease-Specific Hazard Ratio from Overall Hazard Ratio
+Version: 0.1.0
+Authors@R: 
+    c(person(given = "Fernando",
+             family = "Alarid-Escudero",
+             role = c("aut", "cre"),
+             email = "fernando.alarid@cide.edu",
+             comment = c(ORCID = "0000-0001-5076-1172")),
+      person(given = "Karen M.",
+             family = "Kuntz",
+             role = "aut",
+             email = "kmkuntz@umn.edu"))
+Maintainer: Fernando Alarid-Escudero <fernando.alarid@cide.edu>
+Description: A collection of functions that calculate a disease-specific hazard
+  ratio from an overall hazard ratio that evaluates the effectiveness of an 
+  intervention from a clinical trial. This repository is part of the following 
+  working paper submitted for publication: Alarid-Escudero F, Kuntz KM. 
+  "Potential bias associated with modeling the effectiveness of healthcare 
+  interventions in reducing mortality using an overall hazard ratio". (2019). 
+  Under revision.
+License: file LICENSE
+Depends:
+    R (>= 3.5.0)
+Imports:
+    readxl
+Suggests: 
+    knitr,
+    rmarkdown,
+    dampack,
+    ggplot2, 
+    testthat,
+    pkgdown
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Roxygen: list(markdown = TRUE)
+URL: https://github.com/feralaes/dshr
+BugReports: https://github.com/feralaes/dshr/issues

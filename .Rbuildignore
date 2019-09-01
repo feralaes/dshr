@@ -1,0 +1,10 @@
+^data-raw$
+^.*\.Rproj$
+^\.Rproj\.user$
+^dev_history\.R$
+^docs$
+^_pkgdown\.yaml$
+^analysis$
+^dev$
+^output$
+^tables$
