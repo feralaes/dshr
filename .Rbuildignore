@@ -9,3 +9,4 @@
 ^output$
 ^tables$
 ^README\.Rmd$
+^\.travis\.yml$

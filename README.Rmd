@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 # dshr
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.org/feralaes/dshr.svg?branch=master)](https://travis-ci.org/feralaes/dshr)
 <!-- badges: end -->
 
 A package that implements the methods in the publication: 
