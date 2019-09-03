@@ -2,6 +2,7 @@
 
 export(calc_avg_mort)
 export(calc_dshr_from_ohr)
+export(calc_ohr_from_dshr)
 export(est_hazard_params)
 importFrom(dplyr,"%>%")
 importFrom(dplyr,filter)

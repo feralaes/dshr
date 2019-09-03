@@ -34,7 +34,8 @@ Suggests:
     dampack,
     ggplot2, 
     testthat,
-    pkgdown
+    pkgdown,
+    devtools
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
