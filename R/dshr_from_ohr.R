@@ -121,7 +121,7 @@ calc_avg_mort <- function(n_age_init = 50, trial_time = 5,
   mortality <- mortality %>% 
     dplyr::filter(.data$Age>=n_age_init & .data$Age<=n_age_max)
   lambda_b_hat <- switch(hazard,
-    "empirical"   = sum(mortality[, 2])/trial_time,
+    "empirical"   = mean(mortality[, 2]),
     "exponential" = mu0*exp(alpha*n_age_init)*(exp(alpha*trial_time) - 1)/(alpha * trial_time),
     "linear"      = mu0 + 0.5*alpha*(2*n_age_init + trial_time),
     "geometric"   = mu0*(1+alpha)^n_age_init*((1 + alpha)^trial_time - 1)/(log(1+alpha)*trial_time)
