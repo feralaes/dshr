@@ -24,7 +24,10 @@ License: file LICENSE
 Depends:
     R (>= 3.5.0)
 Imports:
-    readxl
+    readxl,
+    dplyr,
+    stats,
+    rlang
 Suggests: 
     knitr,
     rmarkdown,
