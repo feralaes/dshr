@@ -119,7 +119,7 @@ calc_avg_mort <- function(n_age_init = 50, trial_time = 5,
   ## Extract mortality for specified ages
   colnames(mortality) <- c("Age", "Hazard")
   mortality <- mortality %>% 
-    dplyr::filter(.data$Age>=n_age_init & .data$Age<=n_age_max)
+    dplyr::filter(.data$Age>=n_age_init & .data$Age<n_age_max)
   lambda_b_hat <- switch(hazard,
     "empirical"   = mean(mortality$Hazard),
     "exponential" = mu0*exp(alpha*n_age_init)*(exp(alpha*trial_time) - 1)/(alpha * trial_time),
