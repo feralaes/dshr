@@ -4,8 +4,8 @@
 \alias{est_hazard_params}
 \title{Estimation of hazard functional forms for background mortality}
 \usage{
-est_hazard_params(n_age_init, trial_time, hazard = c("exponential",
-  "linear", "geometric"), mortality = NULL)
+est_hazard_params(n_age_init = 50, trial_time = 5,
+  hazard = c("exponential", "linear", "geometric"), mortality = NULL)
 }
 \arguments{
 \item{n_age_init}{Initial age of the cohort}
@@ -13,7 +13,7 @@ est_hazard_params(n_age_init, trial_time, hazard = c("exponential",
 \item{trial_time}{Duration of clinical trial in years}
 
 \item{hazard}{The hazard function to be used for background mortality.
-Either empirical (e.g., from life tables) or a continous-time functional
+Either empirical (e.g., from life tables) or a continuous-time functional
 form.}
 
 \item{mortality}{A \code{data.frame} with two columns. The first column
@@ -33,9 +33,7 @@ cohort with initial age \code{n_age_init} in a trial with duration of
 }
 \examples{
 n_age_init <- 50   # Initial age of cohort in trial
-trial_time <- 1    # Length of clinial trial in years
-ohr        <- 0.55 # Overall hazard ratio (oHR)
-mu_Dis     <- 0.05 # Disease-specific mortality rate  
+trial_time <- 5    # Length of clinial trial in years
 \dontrun{
    v_coef_hazard <- est_hazard_params(n_age_init = n_age_init, 
    trial_time = trial_time, 

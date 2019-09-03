@@ -22,7 +22,7 @@ calc_dshr_from_ohr(ohr = 0.55, mu_Dis = 0.05, n_age_init = 50,
 \item{alpha}{Age-dependent mortality rate coefficient}
 
 \item{hazard}{The hazard function to be used for background mortality.
-Either empirical (e.g., from life tables) or a continous-time functional
+Either empirical (e.g., from life tables) or a continuous-time functional
 form.}
 
 \item{mortality}{A \code{data.frame} with two columns. The first column
@@ -45,3 +45,16 @@ This function requires the average background mortality of the cohort, which
 is computed with the function \code{\link{calc_avg_mort}}.
 }
 
+\examples{
+n_age_init <- 50   # Initial age of cohort in trial
+trial_time <- 5    # Length of clinial trial in years
+ohr        <- 0.55 # Overall hazard ratio (oHR)
+mu_Dis     <- 0.05 # Disease-specific mortality rate
+\dontrun{
+   dshr_emp <- calc_dshr_from_ohr(ohr = ohr, mu_Dis = mu_Dis,
+   n_age_init = n_age_init, 
+   trial_time = trial_time, 
+   hazard = "empirical")
+   dshr_emp
+}
+}

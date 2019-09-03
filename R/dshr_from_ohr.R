@@ -23,6 +23,19 @@
 #' @return 
 #' The disease-specific hazard ratio (dsHR)
 #' @export
+#' 
+#' @examples 
+#' n_age_init <- 50   # Initial age of cohort in trial
+#' trial_time <- 5    # Length of clinial trial in years
+#' ohr        <- 0.55 # Overall hazard ratio (oHR)
+#' mu_Dis     <- 0.05 # Disease-specific mortality rate
+#' \dontrun{
+#'    dshr_emp <- calc_dshr_from_ohr(ohr = ohr, mu_Dis = mu_Dis,
+#'    n_age_init = n_age_init, 
+#'    trial_time = trial_time, 
+#'    hazard = "empirical")
+#'    dshr_emp
+#' }
 calc_dshr_from_ohr <- function(ohr = 0.55, mu_Dis = 0.05, 
                                n_age_init = 50, trial_time = 5,
                                mu0 = NULL, alpha = NULL,
@@ -31,7 +44,12 @@ calc_dshr_from_ohr <- function(ohr = 0.55, mu_Dis = 0.05,
   ### Sanity checks
   ## Check that `hazard` contains valid value
   hazard <- match.arg(hazard)
-  
+  ## Check that mu0 and alpha are supplied when not empirical
+  if(hazard %in% c("exponential", "linear", "geometric")){
+    if (is.null(mu0) | is.null(alpha)){
+      stop("`mu0` and `alpha` should not be NULL when hazard is either exponential, linear, or geometric")
+    }
+  }
   ### Function implementation
   lambda_b_hat <- calc_avg_mort(n_age_init = n_age_init, 
                                 trial_time = trial_time,
@@ -65,6 +83,16 @@ calc_dshr_from_ohr <- function(ohr = 0.55, mu_Dis = 0.05,
 #' @return 
 #' The average background mortality
 #' @export
+#' 
+#' @examples 
+#' n_age_init <- 50   # Initial age of cohort in trial
+#' trial_time <- 5    # Length of clinial trial in years
+#' \dontrun{
+#'    dshr_emp <- calc_avg_mort(n_age_init = n_age_init, 
+#'    trial_time = trial_time, 
+#'    hazard = "empirical")
+#'    dshr_emp
+#' }
 calc_avg_mort <- function(n_age_init = 50, trial_time = 5,
                           mu0 = NULL, alpha = NULL,
                           hazard = c("empirical", "exponential", "linear", "geometric"),
@@ -72,6 +100,12 @@ calc_avg_mort <- function(n_age_init = 50, trial_time = 5,
   ### Sanity checks
   ## Check that `hazard` contains valid value
   hazard <- match.arg(hazard)
+  ## Check that mu0 and alpha are supplied when not empirical
+  if(hazard %in% c("exponential", "linear", "geometric")){
+    if (is.null(mu0) | is.null(alpha)){
+      stop("`mu0` and `alpha` should not be NULL when hazard is either exponential, linear, or geometric")
+    }
+  }
   ## Check if data is NULL
   if(is.null(mortality)){
     mortality <- all_cause_mortality[, c("Age", "Total")]
@@ -157,15 +191,17 @@ est_hazard_params <- function(n_age_init = 50, trial_time = 5,
   } else if (hazard=="linear"){
     fit_hazard <- lm(Hazard ~ Age, 
                      data = mortality)
+    coef_fit <- coef(fit_hazard)
     mu0   <- coef_fit[1]
     alpha <- coef_fit[2]
   } else if (hazard=="geometric"){
     fit_hazard <- lm(log(Hazard) ~ Age, 
                      data = mortality)
+    coef_fit <- coef(fit_hazard)
     mu0   <- exp(coef_fit[1])
     alpha <- exp(coef_fit[2])-1
   }
-  coef_hazard <- c(mu0 = mu0, alpha = alpha)
+  coef_hazard <- list(mu0 = mu0, alpha = alpha)
   names(coef_hazard) <- c("mu0", "alpha")
   return(coef_hazard)
 }

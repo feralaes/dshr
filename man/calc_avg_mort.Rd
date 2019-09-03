@@ -18,7 +18,7 @@ calc_avg_mort(n_age_init = 50, trial_time = 5, mu0 = NULL,
 \item{alpha}{age-dependent mortality rate coefficient}
 
 \item{hazard}{The hazard function to be used for background mortality.
-Either empirical (e.g., from life tables) or a continous-time functional
+Either empirical (e.g., from life tables) or a continuous-time functional
 form.}
 
 \item{mortality}{A \code{data.frame} with two columns. The first column
@@ -34,4 +34,14 @@ The average background mortality
 cohort with initial age \code{n_age_init} in a trial with duration of
 \code{trial_time} years for either empirical hazard (e.g.. from life tables)
 or some continuous-time hazard functional forms.
+}
+\examples{
+n_age_init <- 50   # Initial age of cohort in trial
+trial_time <- 5    # Length of clinial trial in years
+\dontrun{
+   dshr_emp <- calc_avg_mort(n_age_init = n_age_init, 
+   trial_time = trial_time, 
+   hazard = "empirical")
+   dshr_emp
+}
 }

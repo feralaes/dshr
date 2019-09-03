@@ -11,3 +11,5 @@
 #' @importFrom stats lm coef
 #' @importFrom rlang .data
 NULL
+
+globalVariables(c("all_cause_mortality"))
