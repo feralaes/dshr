@@ -54,14 +54,14 @@ for(i in 1:n_sim_doe){
 df_doe_ohr_vs_dshr <- data.frame(df_doe_dshr, 
                                  ohr = v_ohr_emp)
 df_doe_ohr_vs_dshr$Age <- as.factor(df_doe_ohr_vs_dshr$n_age_init)
-levels(df_doe_ohr_vs_dshr$Age) <- c("Cohort age = 40-yo",
-                                    "Cohort age = 50-yo", 
-                                    "Cohort age = 60-yo", 
-                                    "Cohort age = 70-yo")
+levels(df_doe_ohr_vs_dshr$Age) <- c("Cohort age = 40 yrs",
+                                    "Cohort age = 50 yrs", 
+                                    "Cohort age = 60 yrs", 
+                                    "Cohort age = 70 yrs")
 df_doe_ohr_vs_dshr$`Trial years` <- as.factor(df_doe_ohr_vs_dshr$trial_time)
-levels(df_doe_ohr_vs_dshr$`Trial years`) <- c("Trial time = 1yr",
-                                              "Trial time = 5yrs", 
-                                              "Trial time = 10yrs")
+levels(df_doe_ohr_vs_dshr$`Trial years`) <- c("Trial time = 1 yr",
+                                              "Trial time = 5 yrs", 
+                                              "Trial time = 10 yrs")
 #### 06 Generate plot ####
 ggplot(df_doe_ohr_vs_dshr, aes(x = ohr, 
                                y = dshr, 

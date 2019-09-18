@@ -23,9 +23,20 @@ devtools::install_github("feralaes/dshr")
 Example
 -------
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to derive a disease-specific hazard ratio (dsHR) from a disease-specific mortality rate, an overall hazard ratio (oHR) reported in a trial, the initial age of the cohort in the trial, and the length of trial using an empirical approach with background mortality from US life tables.
 
 ``` r
 library(dshr)
-## basic example code
+ohr        <- 0.55 # Overall hazard ratio (oHR)
+n_age_init <- 50   # Initial age of cohort in trial
+trial_time <- 5    # Length of clinial trial in years
+mu_Dis     <- 0.05 # Disease-specific mortality rate
+
+dshr_emp <- calc_dshr_from_ohr(ohr = ohr, 
+                               mu_Dis = mu_Dis,
+                               n_age_init = n_age_init, 
+                               trial_time = trial_time, 
+                               hazard = "empirical")
+dshr_emp
+#> [1] 0.5038836
 ```

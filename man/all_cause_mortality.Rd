@@ -17,4 +17,8 @@ all_cause_mortality
 \description{
 A dataset with all-cause mortality rates from US 2009 life table estimates
 }
+\references{
+Arias E. United States Life Tables, 2009.
+Natl Vital Stat Reports 2014;62(7).
+}
 \keyword{datasets}

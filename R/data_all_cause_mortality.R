@@ -8,4 +8,7 @@
 #'   \item{Male}{mortality rate for males}
 #'   \item{Female}{mortality rate for females}
 #' }
+#' @references 
+#' Arias E. United States Life Tables, 2009. 
+#' Natl Vital Stat Reports 2014;62(7).
 "all_cause_mortality"
