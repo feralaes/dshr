@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![DOI](https://zenodo.org/badge/205402838.svg)](https://zenodo.org/badge/latestdoi/205402838)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3546663.svg)](https://doi.org/10.5281/zenodo.3546663)
 
 dshr
 ====
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/feralaes/dshr.svg?branch=master)](https://travis-ci.org/feralaes/dshr) <!-- badges: end -->
-
+<!-- [![Travis build status](https://travis-ci.org/feralaes/dshr.svg?branch=master)](https://travis-ci.org/feralaes/dshr) -->
+<!-- badges: end -->
 An R package that implements the methods to derive disease-specific hazard ratios (dsHR) from overall hazard ratios (oHR) described in the publication:
 
 -   Alarid-Escudero F, Kuntz KM "Potential bias associated with modeling the effectiveness of healthcare interventions in reducing mortality using an overall hazard ratio." PharmacoEcon 2019 (Forthcoming)
