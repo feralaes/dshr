@@ -23,7 +23,7 @@ devtools::install_github("feralaes/dshr")
 Example
 -------
 
-This is a basic example which shows you how to derive a disease-specific hazard ratio (dsHR) from a disease-specific mortality rate, an overall hazard ratio (oHR) reported in a trial, the initial age of the cohort in the trial, and the length of the trial using an empirical approach with background mortality from US life tables.
+This is a basic example which shows you how to derive a disease-specific hazard ratio (dsHR) from a disease-specific mortality rate, an overall hazard ratio (oHR) reported in a trial, the initial age of the cohort in the trial, and the length of the trial using an *empirical* approach with background mortality from US life tables.
 
 ``` r
 library(dshr)
@@ -38,5 +38,37 @@ dshr_emp <- calc_dshr_from_ohr(ohr = ohr,
                                trial_time = trial_time, 
                                hazard = "empirical")
 dshr_emp
-#> [1] 0.5038836
+#>      dshr 
+#> 0.5038836
+```
+
+To estimate dsHR assuming an anlaytical functional form of background mortality (either exponential, linear or geometric), estimate the `mu0` and `alpha` parameters of the functional form, type them in `calc_dshr_from_ohr` and substitute `empirical` with the functional form of interest. For example, using an *exponential* functional form with background mortality from US life tables, the estimated parameters are
+
+``` r
+coef_hazard_exp <- est_hazard_params(n_age_init = n_age_init,
+                                     trial_time = trial_time,
+                                     hazard = "exponential")
+coef_hazard_exp
+#> $mu0
+#>  (Intercept) 
+#> 0.0001105985 
+#> 
+#> $alpha
+#>        Age 
+#> 0.07362561
+```
+
+and the dshr is
+
+``` r
+dshr_exp <- calc_dshr_from_ohr(ohr = ohr, 
+                               mu_Dis = mu_Dis,
+                               n_age_init = n_age_init, 
+                               trial_time = trial_time, 
+                               mu0 = coef_hazard_exp$mu0,
+                               alpha = coef_hazard_exp$alpha,
+                               hazard = "exponential")
+dshr_exp
+#>      dshr 
+#> 0.5022318
 ```

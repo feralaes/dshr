@@ -60,6 +60,8 @@ calc_dshr_from_ohr <- function(ohr = 0.55, mu_Dis = 0.05,
   ## Average background mortality for the trial over trial_time years for a 
   ## cohort with initial age n_age_init,
   dshr <- (ohr*(lambda_b_hat + mu_Dis) - lambda_b_hat)/mu_Dis
+  names(dshr) <- "dshr"
+  
   return(dshr)
 }
 
