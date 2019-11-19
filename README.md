@@ -1,5 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+[![DOI](https://zenodo.org/badge/205402838.svg)](https://zenodo.org/badge/latestdoi/205402838)
+
 dshr
 ====
 
