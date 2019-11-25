@@ -10,7 +10,7 @@ dshr
 <!-- badges: end -->
 An R package that implements the methods to derive disease-specific hazard ratios (dsHR) from overall hazard ratios (oHR) described in the publication:
 
--   Alarid-Escudero F, Kuntz KM "Potential bias associated with modeling the effectiveness of healthcare interventions in reducing mortality using an overall hazard ratio." PharmacoEcon 2019 (Forthcoming)
+-   Alarid-Escudero F, Kuntz KM "[Potential bias associated with modeling the effectiveness of healthcare interventions in reducing mortality using an overall hazard ratio](https://link.springer.com/article/10.1007%2Fs40273-019-00859-5)." PharmacoEcon 2019 (Online First). <https://doi.org/10.1007/s40273-019-00859-5>
 
 Installation
 ------------
