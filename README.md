@@ -1,31 +1,42 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3546663.svg)](https://doi.org/10.5281/zenodo.3546663)
 
-dshr
-====
+# dshr
 
 <!-- badges: start -->
 <!-- [![Travis build status](https://travis-ci.org/feralaes/dshr.svg?branch=master)](https://travis-ci.org/feralaes/dshr) -->
 <!-- badges: end -->
-An R package that implements the methods to derive disease-specific hazard ratios (dsHR) from overall hazard ratios (oHR) described in the publication:
 
--   Alarid-Escudero F, Kuntz KM "[Potential bias associated with modeling the effectiveness of healthcare interventions in reducing mortality using an overall hazard ratio](https://link.springer.com/article/10.1007%2Fs40273-019-00859-5)." PharmacoEcon 2019 (Online First). <https://doi.org/10.1007/s40273-019-00859-5>
+An R package that implements the methods to derive disease-specific
+hazard ratios (dsHR) from overall hazard ratios (oHR) described in the
+publication:
 
-Installation
-------------
+- Alarid-Escudero F, Kuntz KM “[Potential bias associated with modeling
+  the effectiveness of healthcare interventions in reducing mortality
+  using an overall hazard
+  ratio](https://link.springer.com/article/10.1007%2Fs40273-019-00859-5).”
+  PharmacoEcon 2020; 38(3):285-296.
+  <https://doi.org/10.1007/s40273-019-00859-5>
 
-You can install the development version from [GitHub](https://github.com/) with:
+## Installation
+
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("feralaes/dshr")
 ```
 
-Example
--------
+## Example
 
-This is a basic example which shows you how to derive a disease-specific hazard ratio (dsHR) from a disease-specific mortality rate, an overall hazard ratio (oHR) reported in a trial, the initial age of the cohort in the trial, and the length of the trial using an *empirical* approach with background mortality from US life tables.
+This is a basic example which shows you how to derive a disease-specific
+hazard ratio (dsHR) from a disease-specific mortality rate, an overall
+hazard ratio (oHR) reported in a trial, the initial age of the cohort in
+the trial, and the length of the trial using an *empirical* approach
+with background mortality from US life tables.
 
 ``` r
 library(dshr)
@@ -44,7 +55,12 @@ dshr_emp
 #> 0.5038836
 ```
 
-To estimate dsHR assuming an anlaytical functional form of background mortality (either exponential, linear or geometric), estimate the `mu0` and `alpha` parameters of the functional form, type them in `calc_dshr_from_ohr` and substitute `empirical` with the functional form of interest. For example, using an *exponential* functional form with background mortality from US life tables, the estimated parameters are
+To estimate dsHR assuming an anlaytical functional form of background
+mortality (either exponential, linear or geometric), estimate the `mu0`
+and `alpha` parameters of the functional form, type them in
+`calc_dshr_from_ohr` and substitute `empirical` with the functional form
+of interest. For example, using an *exponential* functional form with
+background mortality from US life tables, the estimated parameters are
 
 ``` r
 coef_hazard_exp <- est_hazard_params(n_age_init = n_age_init,
